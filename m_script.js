@@ -114,6 +114,9 @@ function initMap() {
         //console.log(marker);
         document.getElementById("myModal").className = "my-modal";
         document.getElementById("close").className = "modal-close";
+
+        $('#myModal').append('');
+        $('#myModal').append('<p class="title-modal">' + markers[key].name + '</p>');
       });
     })(marker);
   }
