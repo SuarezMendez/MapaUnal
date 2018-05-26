@@ -97,7 +97,7 @@ function initMap() {
   });
 
   for(var key in markers) {
-    console.log(key, markers[key]);
+    //console.log(key, markers[key]);
     var marker = new google.maps.Marker({
       key: key,
       position: {
@@ -110,9 +110,19 @@ function initMap() {
     });
     (function (marker){
       google.maps.event.addListener(marker, 'click', function(e) {
-        console.log(marker);
+        //console.log(marker);
+        document.getElementById("myModal").className = "my-modal";
+        document.getElementById("close").className = "modal-close";
+
+        $('#myModal').append('');
+        $('#myModal').append('<p class="title-modal">' + markers[key].name + '</p>');
       });
     })(marker);
   }
 
+
+  $('#close').click(function(){
+    document.getElementById("myModal").className = "";
+    document.getElementById("close").className = "";
+  });
 }
