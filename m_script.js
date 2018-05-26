@@ -88,7 +88,7 @@ function initMap() {
   ];
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16,
+    zoom: 17,
     center: uluru,
     styles: myStyles
   });
@@ -97,17 +97,23 @@ function initMap() {
     console.log(event.latLng.lng());
   });
 
-  for (var key in markers){
+  for(var key in markers) {
     console.log(key, markers[key]);
-    new google.maps.Marker({
+    var marker = new google.maps.Marker({
       key: key,
       position: {
         lat: markers[key].lat,
         lng: markers[key].lng
       },
       label: key,
+      icon: "https://lh3.googleusercontent.com/-aChpjxGYVEo/U3N2rjVJ_8I/AAAAAAAABMw/tL6vlWAxddg/w40-h73-n/14%2B-%2B1",
       map: map
     });
+    (function (marker){
+      google.maps.event.addListener(marker, 'click', function(e) {
+        console.log(marker);
+      });
+    })(marker);
   }
 
 }
