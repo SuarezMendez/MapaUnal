@@ -114,7 +114,8 @@ function initMap() {
         document.getElementById("myModal").className = "my-modal";
         document.getElementById("close").className = "modal-close";
 
-        $('#myModal').append('<p class="title-modal">' + markers[marker.key].name + '</p>');
+        $('#myModal').append('<p class="title-modal">' + marker.key + " - " + markers[marker.key].name + '</p>');
+		    $('#myModal').append('<img src="./images/' + marker.key + '.jpg" class="center" style="margin:auto">');
       });
     })(marker);
   }
@@ -124,5 +125,6 @@ function initMap() {
     document.getElementById("myModal").className = "";
     document.getElementById("close").className = "";
     $('#myModal p').remove();
+    $('#myModal img').remove();
   });
 }
