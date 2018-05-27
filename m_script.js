@@ -9,7 +9,7 @@ var markers = {
   "207": { "name": "Museo de Arquitectura Leopoldo Rother", lat: 4.633974004231836, lng: -74.08318719720967 },
   "210": { "name": "Facultad de Odontología", lat: 4.634491757898525, lng: -74.08525751824146 },
   "212": { "name": "Aulas de Ciencias Humanas", lat: 4.6340479668330925, lng: -74.08466206784016 },
-  "213": { "name": "Restaurante de Ciencias Humanas", lat: 4.6329661113130935, lng: -74.08444793871496 },
+  "213": { "name": "Restaurante de Ciencias Humanas", lat: 4.6329661113130935,  lng: -74.08444793871496 },
   "214": { "name": "Edificio Antonio Nariño - Departamento de Lingüística. Departamento de Ingeniería Civil y Agrícola", lat: 4.633545432390012, lng: -74.08398598257736 },
   "217": { "name": "Edificio Francisco de Paula Santander: Diseño Gráfico", lat: 4.633251353610619, lng: -74.08318131987289 },
   "224": { "name": "Edificio Manuel Ancízar", lat: 4.633616675844476, lng: -74.08551551465587 },
@@ -115,7 +115,8 @@ function initMap() {
         document.getElementById("myModal").className = "my-modal";
         document.getElementById("close").className = "modal-close";
 
-        $('#myModal').append('<p class="title-modal">' + markers[marker.key].name + '</p>');
+        $('#myModal').append('<p class="title-modal">' + marker.key + " - " + markers[marker.key].name + '</p>');
+		$('#myModal').append('<img src="./images/' + marker.key + '.jpg">');
       });
     })(marker);
   }
